@@ -62,6 +62,7 @@
             btConfig.Text = "Configurações";
             btConfig.TextAlign = ContentAlignment.MiddleLeft;
             btConfig.UseVisualStyleBackColor = true;
+            btConfig.Click += btConfig_Click;
             // 
             // btSair
             // 
@@ -77,6 +78,7 @@
             btSair.Text = "Sair";
             btSair.TextAlign = ContentAlignment.MiddleLeft;
             btSair.UseVisualStyleBackColor = true;
+            btSair.Click += btSair_Click;
             // 
             // btNotas
             // 

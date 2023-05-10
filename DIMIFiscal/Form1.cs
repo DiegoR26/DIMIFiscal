@@ -29,5 +29,17 @@ namespace DIMIFiscal {
         private void btNotas_Click(object sender, EventArgs e) {
             openWindow(new NFForm());
         }
+
+        private void btConfig_Click(object sender, EventArgs e) {
+            openWindow(new ConfigForm());
+        }
+
+        private void btSair_Click(object sender, EventArgs e) {
+            if (MessageBox.Show("Deseja realmente sair?", "Sair do Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.None) == DialogResult.Yes) {
+                Application.Exit();
+            }
+
+
+        }
     }
 }
