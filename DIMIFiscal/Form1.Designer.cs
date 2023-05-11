@@ -139,6 +139,7 @@
             Controls.Add(containerPanel);
             Controls.Add(sideMenuPanel);
             Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            MinimumSize = new Size(800, 571);
             Name = "Form1";
             Text = "Form1";
             sideMenuPanel.ResumeLayout(false);

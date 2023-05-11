@@ -26,22 +26,22 @@
             btNFClose = new Button();
             checkedListBox1 = new CheckedListBox();
             groupBox1 = new GroupBox();
+            label2 = new Label();
+            label1 = new Label();
             dateTimePicker2 = new DateTimePicker();
             dateTimePicker1 = new DateTimePicker();
             groupBox2 = new GroupBox();
+            label4 = new Label();
+            label3 = new Label();
             dateTimePicker4 = new DateTimePicker();
             dateTimePicker3 = new DateTimePicker();
             groupBox3 = new GroupBox();
-            panel1 = new Panel();
-            radioButton1 = new RadioButton();
             radioButton2 = new RadioButton();
+            radioButton1 = new RadioButton();
+            panel1 = new Panel();
             groupBox4 = new GroupBox();
-            checkBox1 = new CheckBox();
             checkBox2 = new CheckBox();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
+            checkBox1 = new CheckBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -85,6 +85,24 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(18, 63);
+            label2.Name = "label2";
+            label2.Size = new Size(38, 15);
+            label2.TabIndex = 3;
+            label2.Text = "label2";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(18, 19);
+            label1.Name = "label1";
+            label1.Size = new Size(38, 15);
+            label1.TabIndex = 2;
+            label1.Text = "label1";
+            // 
             // dateTimePicker2
             // 
             dateTimePicker2.Location = new Point(18, 81);
@@ -114,6 +132,24 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "groupBox2";
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(18, 64);
+            label4.Name = "label4";
+            label4.Size = new Size(38, 15);
+            label4.TabIndex = 3;
+            label4.Text = "label4";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(18, 19);
+            label3.Name = "label3";
+            label3.Size = new Size(38, 15);
+            label3.TabIndex = 2;
+            label3.Text = "label3";
+            // 
             // dateTimePicker4
             // 
             dateTimePicker4.Location = new Point(18, 82);
@@ -140,14 +176,16 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "groupBox3";
             // 
-            // panel1
+            // radioButton2
             // 
-            panel1.BackColor = Color.FromArgb(40, 42, 54);
-            panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(353, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(211, 532);
-            panel1.TabIndex = 5;
+            radioButton2.AutoSize = true;
+            radioButton2.Location = new Point(18, 59);
+            radioButton2.Name = "radioButton2";
+            radioButton2.Size = new Size(94, 19);
+            radioButton2.TabIndex = 1;
+            radioButton2.TabStop = true;
+            radioButton2.Text = "radioButton2";
+            radioButton2.UseVisualStyleBackColor = true;
             // 
             // radioButton1
             // 
@@ -160,16 +198,14 @@
             radioButton1.Text = "radioButton1";
             radioButton1.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // panel1
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(18, 59);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(94, 19);
-            radioButton2.TabIndex = 1;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "radioButton2";
-            radioButton2.UseVisualStyleBackColor = true;
+            panel1.BackColor = Color.FromArgb(40, 42, 54);
+            panel1.Dock = DockStyle.Right;
+            panel1.Location = new Point(353, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(211, 532);
+            panel1.TabIndex = 5;
             // 
             // groupBox4
             // 
@@ -182,16 +218,6 @@
             groupBox4.TabStop = false;
             groupBox4.Text = "groupBox4";
             // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(18, 39);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(83, 19);
-            checkBox1.TabIndex = 0;
-            checkBox1.Text = "checkBox1";
-            checkBox1.UseVisualStyleBackColor = true;
-            // 
             // checkBox2
             // 
             checkBox2.AutoSize = true;
@@ -202,41 +228,15 @@
             checkBox2.Text = "checkBox2";
             checkBox2.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // checkBox1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(18, 19);
-            label1.Name = "label1";
-            label1.Size = new Size(38, 15);
-            label1.TabIndex = 2;
-            label1.Text = "label1";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(18, 63);
-            label2.Name = "label2";
-            label2.Size = new Size(38, 15);
-            label2.TabIndex = 3;
-            label2.Text = "label2";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(18, 19);
-            label3.Name = "label3";
-            label3.Size = new Size(38, 15);
-            label3.TabIndex = 2;
-            label3.Text = "label3";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(18, 64);
-            label4.Name = "label4";
-            label4.Size = new Size(38, 15);
-            label4.TabIndex = 3;
-            label4.Text = "label4";
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(18, 39);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(83, 19);
+            checkBox1.TabIndex = 0;
+            checkBox1.Text = "checkBox1";
+            checkBox1.UseVisualStyleBackColor = true;
             // 
             // NFForm
             // 
