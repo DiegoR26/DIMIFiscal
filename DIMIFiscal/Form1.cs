@@ -2,8 +2,10 @@ using DIMIFiscal.Properties;
 
 namespace DIMIFiscal {
     public partial class Form1 : Form {
+
         public Form1() {
             InitializeComponent();
+
         }
 
         private Form activeWindow = null;

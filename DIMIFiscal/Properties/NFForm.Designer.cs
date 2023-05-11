@@ -25,27 +25,29 @@
         private void InitializeComponent() {
             btNFClose = new Button();
             checkedListBox1 = new CheckedListBox();
-            groupBox1 = new GroupBox();
+            competenciaBox = new GroupBox();
+            checkBox2 = new CheckBox();
+            label2 = new Label();
+            label1 = new Label();
             dateTimePicker2 = new DateTimePicker();
             dateTimePicker1 = new DateTimePicker();
-            groupBox2 = new GroupBox();
+            emissaoBox = new GroupBox();
+            checkBox1 = new CheckBox();
+            label4 = new Label();
+            label3 = new Label();
             dateTimePicker4 = new DateTimePicker();
             dateTimePicker3 = new DateTimePicker();
-            groupBox3 = new GroupBox();
+            emissorBox = new GroupBox();
+            radioTom = new RadioButton();
+            radioPres = new RadioButton();
             panel1 = new Panel();
-            radioButton1 = new RadioButton();
-            radioButton2 = new RadioButton();
-            groupBox4 = new GroupBox();
-            checkBox1 = new CheckBox();
-            checkBox2 = new CheckBox();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            groupBox1.SuspendLayout();
-            groupBox2.SuspendLayout();
-            groupBox3.SuspendLayout();
-            groupBox4.SuspendLayout();
+            arquivosBox = new GroupBox();
+            checkPDF = new CheckBox();
+            checkXML = new CheckBox();
+            competenciaBox.SuspendLayout();
+            emissaoBox.SuspendLayout();
+            emissorBox.SuspendLayout();
+            arquivosBox.SuspendLayout();
             SuspendLayout();
             // 
             // btNFClose
@@ -65,6 +67,7 @@
             // 
             // checkedListBox1
             // 
+            checkedListBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             checkedListBox1.BackColor = Color.FromArgb(224, 224, 224);
             checkedListBox1.FormattingEnabled = true;
             checkedListBox1.Location = new Point(12, 48);
@@ -72,171 +75,222 @@
             checkedListBox1.Size = new Size(194, 472);
             checkedListBox1.TabIndex = 1;
             // 
-            // groupBox1
+            // competenciaBox
             // 
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(dateTimePicker2);
-            groupBox1.Controls.Add(dateTimePicker1);
-            groupBox1.Location = new Point(212, 48);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(135, 127);
-            groupBox1.TabIndex = 2;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "groupBox1";
+            competenciaBox.Controls.Add(checkBox2);
+            competenciaBox.Controls.Add(label2);
+            competenciaBox.Controls.Add(label1);
+            competenciaBox.Controls.Add(dateTimePicker2);
+            competenciaBox.Controls.Add(dateTimePicker1);
+            competenciaBox.ForeColor = SystemColors.Control;
+            competenciaBox.Location = new Point(212, 48);
+            competenciaBox.Name = "competenciaBox";
+            competenciaBox.Size = new Size(135, 127);
+            competenciaBox.TabIndex = 2;
+            competenciaBox.TabStop = false;
+            competenciaBox.Text = "Competência";
+            // 
+            // checkBox2
+            // 
+            checkBox2.AutoSize = true;
+            checkBox2.Checked = true;
+            checkBox2.CheckState = CheckState.Checked;
+            checkBox2.Location = new Point(114, 0);
+            checkBox2.Name = "checkBox2";
+            checkBox2.Size = new Size(15, 14);
+            checkBox2.TabIndex = 7;
+            checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.ForeColor = SystemColors.Control;
+            label2.Location = new Point(18, 62);
+            label2.Name = "label2";
+            label2.Size = new Size(32, 15);
+            label2.TabIndex = 3;
+            label2.Text = "Final";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.ForeColor = SystemColors.Control;
+            label1.Location = new Point(18, 18);
+            label1.Name = "label1";
+            label1.Size = new Size(36, 15);
+            label1.TabIndex = 2;
+            label1.Text = "Início";
             // 
             // dateTimePicker2
             // 
+            dateTimePicker2.Cursor = Cursors.Hand;
+            dateTimePicker2.CustomFormat = "dd/MM/yyyy";
+            dateTimePicker2.Format = DateTimePickerFormat.Custom;
             dateTimePicker2.Location = new Point(18, 81);
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(98, 23);
             dateTimePicker2.TabIndex = 1;
+            dateTimePicker2.Value = new DateTime(2023, 5, 11, 0, 0, 0, 0);
             // 
             // dateTimePicker1
             // 
+            dateTimePicker1.Cursor = Cursors.Hand;
             dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.Location = new Point(18, 36);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(98, 23);
             dateTimePicker1.TabIndex = 0;
+            dateTimePicker1.Value = new DateTime(2023, 5, 11, 0, 0, 0, 0);
             dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
             // 
-            // groupBox2
+            // emissaoBox
             // 
-            groupBox2.Controls.Add(label4);
-            groupBox2.Controls.Add(label3);
-            groupBox2.Controls.Add(dateTimePicker4);
-            groupBox2.Controls.Add(dateTimePicker3);
-            groupBox2.Location = new Point(212, 181);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(135, 127);
-            groupBox2.TabIndex = 3;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "groupBox2";
+            emissaoBox.Controls.Add(checkBox1);
+            emissaoBox.Controls.Add(label4);
+            emissaoBox.Controls.Add(label3);
+            emissaoBox.Controls.Add(dateTimePicker4);
+            emissaoBox.Controls.Add(dateTimePicker3);
+            emissaoBox.ForeColor = SystemColors.Control;
+            emissaoBox.Location = new Point(212, 181);
+            emissaoBox.Name = "emissaoBox";
+            emissaoBox.Size = new Size(135, 127);
+            emissaoBox.TabIndex = 3;
+            emissaoBox.TabStop = false;
+            emissaoBox.Text = "Emissão";
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(114, 0);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(15, 14);
+            checkBox1.TabIndex = 4;
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.ForeColor = SystemColors.Control;
+            label4.Location = new Point(18, 64);
+            label4.Name = "label4";
+            label4.Size = new Size(32, 15);
+            label4.TabIndex = 3;
+            label4.Text = "Final";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.ForeColor = SystemColors.Control;
+            label3.Location = new Point(18, 19);
+            label3.Name = "label3";
+            label3.Size = new Size(36, 15);
+            label3.TabIndex = 2;
+            label3.Text = "Início";
             // 
             // dateTimePicker4
             // 
+            dateTimePicker4.Cursor = Cursors.Hand;
+            dateTimePicker4.CustomFormat = "dd/MM/yyyy";
+            dateTimePicker4.Format = DateTimePickerFormat.Custom;
             dateTimePicker4.Location = new Point(18, 82);
             dateTimePicker4.Name = "dateTimePicker4";
             dateTimePicker4.Size = new Size(98, 23);
             dateTimePicker4.TabIndex = 1;
+            dateTimePicker4.Value = new DateTime(2023, 5, 11, 0, 0, 0, 0);
             // 
             // dateTimePicker3
             // 
+            dateTimePicker3.Cursor = Cursors.Hand;
+            dateTimePicker3.CustomFormat = "dd/MM/yyyy";
+            dateTimePicker3.Format = DateTimePickerFormat.Custom;
             dateTimePicker3.Location = new Point(18, 37);
             dateTimePicker3.Name = "dateTimePicker3";
             dateTimePicker3.Size = new Size(98, 23);
             dateTimePicker3.TabIndex = 0;
+            dateTimePicker3.Value = new DateTime(2023, 5, 11, 0, 0, 0, 0);
             dateTimePicker3.ValueChanged += dateTimePicker3_ValueChanged;
             // 
-            // groupBox3
+            // emissorBox
             // 
-            groupBox3.Controls.Add(radioButton2);
-            groupBox3.Controls.Add(radioButton1);
-            groupBox3.Location = new Point(212, 314);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(135, 97);
-            groupBox3.TabIndex = 4;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "groupBox3";
+            emissorBox.Controls.Add(radioTom);
+            emissorBox.Controls.Add(radioPres);
+            emissorBox.ForeColor = SystemColors.Control;
+            emissorBox.Location = new Point(212, 314);
+            emissorBox.Name = "emissorBox";
+            emissorBox.Size = new Size(135, 97);
+            emissorBox.TabIndex = 4;
+            emissorBox.TabStop = false;
+            emissorBox.Text = "Emissor";
+            // 
+            // radioTom
+            // 
+            radioTom.AutoSize = true;
+            radioTom.ForeColor = SystemColors.Control;
+            radioTom.Location = new Point(18, 59);
+            radioTom.Name = "radioTom";
+            radioTom.Size = new Size(73, 19);
+            radioTom.TabIndex = 1;
+            radioTom.Text = "Tomados";
+            radioTom.UseVisualStyleBackColor = true;
+            // 
+            // radioPres
+            // 
+            radioPres.AutoSize = true;
+            radioPres.Checked = true;
+            radioPres.ForeColor = SystemColors.Control;
+            radioPres.Location = new Point(18, 34);
+            radioPres.Name = "radioPres";
+            radioPres.Size = new Size(76, 19);
+            radioPres.TabIndex = 0;
+            radioPres.TabStop = true;
+            radioPres.Text = "Prestados";
+            radioPres.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = Color.FromArgb(40, 42, 54);
-            panel1.Dock = DockStyle.Right;
             panel1.Location = new Point(353, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(211, 532);
             panel1.TabIndex = 5;
             // 
-            // radioButton1
+            // arquivosBox
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(18, 34);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(94, 19);
-            radioButton1.TabIndex = 0;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "radioButton1";
-            radioButton1.UseVisualStyleBackColor = true;
+            arquivosBox.Controls.Add(checkPDF);
+            arquivosBox.Controls.Add(checkXML);
+            arquivosBox.ForeColor = SystemColors.Control;
+            arquivosBox.Location = new Point(212, 417);
+            arquivosBox.Name = "arquivosBox";
+            arquivosBox.Size = new Size(135, 103);
+            arquivosBox.TabIndex = 6;
+            arquivosBox.TabStop = false;
+            arquivosBox.Text = "Arquivos";
             // 
-            // radioButton2
+            // checkPDF
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(18, 59);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(94, 19);
-            radioButton2.TabIndex = 1;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "radioButton2";
-            radioButton2.UseVisualStyleBackColor = true;
+            checkPDF.AutoSize = true;
+            checkPDF.ForeColor = SystemColors.Control;
+            checkPDF.Location = new Point(18, 64);
+            checkPDF.Name = "checkPDF";
+            checkPDF.Size = new Size(47, 19);
+            checkPDF.TabIndex = 1;
+            checkPDF.Text = "PDF";
+            checkPDF.UseVisualStyleBackColor = true;
             // 
-            // groupBox4
+            // checkXML
             // 
-            groupBox4.Controls.Add(checkBox2);
-            groupBox4.Controls.Add(checkBox1);
-            groupBox4.Location = new Point(212, 417);
-            groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(135, 103);
-            groupBox4.TabIndex = 6;
-            groupBox4.TabStop = false;
-            groupBox4.Text = "groupBox4";
-            // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(18, 39);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(83, 19);
-            checkBox1.TabIndex = 0;
-            checkBox1.Text = "checkBox1";
-            checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(18, 64);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(83, 19);
-            checkBox2.TabIndex = 1;
-            checkBox2.Text = "checkBox2";
-            checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(18, 19);
-            label1.Name = "label1";
-            label1.Size = new Size(38, 15);
-            label1.TabIndex = 2;
-            label1.Text = "label1";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(18, 63);
-            label2.Name = "label2";
-            label2.Size = new Size(38, 15);
-            label2.TabIndex = 3;
-            label2.Text = "label2";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(18, 19);
-            label3.Name = "label3";
-            label3.Size = new Size(38, 15);
-            label3.TabIndex = 2;
-            label3.Text = "label3";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(18, 64);
-            label4.Name = "label4";
-            label4.Size = new Size(38, 15);
-            label4.TabIndex = 3;
-            label4.Text = "label4";
+            checkXML.AutoSize = true;
+            checkXML.Checked = true;
+            checkXML.CheckState = CheckState.Checked;
+            checkXML.ForeColor = SystemColors.Control;
+            checkXML.Location = new Point(18, 39);
+            checkXML.Name = "checkXML";
+            checkXML.Size = new Size(50, 19);
+            checkXML.TabIndex = 0;
+            checkXML.Text = "XML";
+            checkXML.UseVisualStyleBackColor = true;
             // 
             // NFForm
             // 
@@ -244,23 +298,23 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(68, 71, 90);
             ClientSize = new Size(564, 532);
-            Controls.Add(groupBox4);
+            Controls.Add(arquivosBox);
             Controls.Add(panel1);
-            Controls.Add(groupBox3);
-            Controls.Add(groupBox2);
-            Controls.Add(groupBox1);
+            Controls.Add(emissorBox);
+            Controls.Add(emissaoBox);
+            Controls.Add(competenciaBox);
             Controls.Add(checkedListBox1);
             Controls.Add(btNFClose);
             Name = "NFForm";
             Text = "NFForm";
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
-            groupBox3.ResumeLayout(false);
-            groupBox3.PerformLayout();
-            groupBox4.ResumeLayout(false);
-            groupBox4.PerformLayout();
+            competenciaBox.ResumeLayout(false);
+            competenciaBox.PerformLayout();
+            emissaoBox.ResumeLayout(false);
+            emissaoBox.PerformLayout();
+            emissorBox.ResumeLayout(false);
+            emissorBox.PerformLayout();
+            arquivosBox.ResumeLayout(false);
+            arquivosBox.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -268,21 +322,23 @@
 
         private Button btNFClose;
         private CheckedListBox checkedListBox1;
-        private GroupBox groupBox1;
+        private GroupBox competenciaBox;
         private DateTimePicker dateTimePicker2;
         private DateTimePicker dateTimePicker1;
-        private GroupBox groupBox2;
+        private GroupBox emissaoBox;
         private DateTimePicker dateTimePicker3;
         private DateTimePicker dateTimePicker4;
-        private GroupBox groupBox3;
+        private GroupBox emissorBox;
         private Panel panel1;
         private Label label2;
         private Label label1;
         private Label label4;
         private Label label3;
-        private RadioButton radioButton2;
-        private RadioButton radioButton1;
-        private GroupBox groupBox4;
+        private RadioButton radioTom;
+        private RadioButton radioPres;
+        private GroupBox arquivosBox;
+        private CheckBox checkPDF;
+        private CheckBox checkXML;
         private CheckBox checkBox2;
         private CheckBox checkBox1;
     }

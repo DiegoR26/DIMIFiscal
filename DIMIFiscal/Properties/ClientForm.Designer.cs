@@ -24,11 +24,11 @@
         /// </summary>
         private void InitializeComponent() {
             btClientClose = new Button();
-            dataGridView1 = new DataGridView();
+            clientGrid = new DataGridView();
             btEditClient = new Button();
             btAddClient = new Button();
             btDelClient = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)clientGrid).BeginInit();
             SuspendLayout();
             // 
             // btClientClose
@@ -46,16 +46,16 @@
             btClientClose.UseVisualStyleBackColor = false;
             btClientClose.Click += btClientClose_Click;
             // 
-            // dataGridView1
+            // clientGrid
             // 
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.BackgroundColor = Color.FromArgb(224, 224, 224);
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(17, 97);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(535, 319);
-            dataGridView1.TabIndex = 1;
+            clientGrid.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            clientGrid.BackgroundColor = Color.FromArgb(224, 224, 224);
+            clientGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            clientGrid.Location = new Point(17, 97);
+            clientGrid.Name = "clientGrid";
+            clientGrid.RowTemplate.Height = 25;
+            clientGrid.Size = new Size(535, 319);
+            clientGrid.TabIndex = 1;
             // 
             // btEditClient
             // 
@@ -92,6 +92,7 @@
             btAddClient.TabIndex = 4;
             btAddClient.Text = "Adicionar";
             btAddClient.UseVisualStyleBackColor = false;
+            btAddClient.Click += btAddClient_Click;
             // 
             // btDelClient
             // 
@@ -120,18 +121,18 @@
             Controls.Add(btDelClient);
             Controls.Add(btAddClient);
             Controls.Add(btEditClient);
-            Controls.Add(dataGridView1);
+            Controls.Add(clientGrid);
             Controls.Add(btClientClose);
             Name = "ClientForm";
             Text = "ClientForm";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)clientGrid).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Button btClientClose;
-        private DataGridView dataGridView1;
+        private DataGridView clientGrid;
         private Button btEditClient;
         private Button btAddClient;
         private Button btDelClient;
