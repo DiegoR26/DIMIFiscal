@@ -25,12 +25,9 @@ namespace DIMIFiscal.Properties {
             }
         }
 
-        public Button BtClientOk { get { return btClientOk; } }
-
         public ClientView() {
             InitializeComponent();
 
-            this.StartPosition = FormStartPosition.CenterParent;
         }
 
         private void button2_Click(object sender, EventArgs e) {

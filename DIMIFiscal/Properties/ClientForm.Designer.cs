@@ -123,6 +123,7 @@
             Controls.Add(btEditClient);
             Controls.Add(clientGrid);
             Controls.Add(btClientClose);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "ClientForm";
             Text = "ClientForm";
             ((System.ComponentModel.ISupportInitialize)clientGrid).EndInit();

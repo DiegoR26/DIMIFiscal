@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace DIMIFiscal.Properties {
     public partial class NFForm : Form {
+
         public NFForm() {
             InitializeComponent();
         }

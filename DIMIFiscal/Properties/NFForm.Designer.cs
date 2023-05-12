@@ -24,15 +24,14 @@
         /// </summary>
         private void InitializeComponent() {
             btNFClose = new Button();
-            checkedListBox1 = new CheckedListBox();
+            checkedClientList = new CheckedListBox();
             competenciaBox = new GroupBox();
-            checkBox2 = new CheckBox();
+            this.checkPDF = new CheckBox();
             label2 = new Label();
             label1 = new Label();
             dateTimePicker2 = new DateTimePicker();
             dateTimePicker1 = new DateTimePicker();
             emissaoBox = new GroupBox();
-            checkBox1 = new CheckBox();
             label4 = new Label();
             label3 = new Label();
             dateTimePicker4 = new DateTimePicker();
@@ -40,10 +39,9 @@
             emissorBox = new GroupBox();
             radioTom = new RadioButton();
             radioPres = new RadioButton();
-            panel1 = new Panel();
+            reportPanel = new Panel();
+            this.checkXML = new CheckBox();
             arquivosBox = new GroupBox();
-            checkPDF = new CheckBox();
-            checkXML = new CheckBox();
             competenciaBox.SuspendLayout();
             emissaoBox.SuspendLayout();
             emissorBox.SuspendLayout();
@@ -65,19 +63,18 @@
             btNFClose.UseVisualStyleBackColor = false;
             btNFClose.Click += btNFClose_Click;
             // 
-            // checkedListBox1
+            // checkedClientList
             // 
-            checkedListBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            checkedListBox1.BackColor = Color.FromArgb(224, 224, 224);
-            checkedListBox1.FormattingEnabled = true;
-            checkedListBox1.Location = new Point(12, 48);
-            checkedListBox1.Name = "checkedListBox1";
-            checkedListBox1.Size = new Size(194, 472);
-            checkedListBox1.TabIndex = 1;
+            checkedClientList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            checkedClientList.BackColor = Color.FromArgb(224, 224, 224);
+            checkedClientList.FormattingEnabled = true;
+            checkedClientList.Location = new Point(12, 48);
+            checkedClientList.Name = "checkedClientList";
+            checkedClientList.Size = new Size(194, 472);
+            checkedClientList.TabIndex = 1;
             // 
             // competenciaBox
             // 
-            competenciaBox.Controls.Add(checkBox2);
             competenciaBox.Controls.Add(label2);
             competenciaBox.Controls.Add(label1);
             competenciaBox.Controls.Add(dateTimePicker2);
@@ -90,22 +87,21 @@
             competenciaBox.TabStop = false;
             competenciaBox.Text = "Competência";
             // 
-            // checkBox2
+            // checkPDF
             // 
-            checkBox2.AutoSize = true;
-            checkBox2.Checked = true;
-            checkBox2.CheckState = CheckState.Checked;
-            checkBox2.Location = new Point(114, 0);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(15, 14);
-            checkBox2.TabIndex = 7;
-            checkBox2.UseVisualStyleBackColor = true;
+            this.checkPDF.AutoSize = true;
+            this.checkPDF.Location = new Point(18, 59);
+            this.checkPDF.Name = "checkPDF";
+            this.checkPDF.Size = new Size(47, 19);
+            this.checkPDF.TabIndex = 1;
+            this.checkPDF.Text = "PDF";
+            this.checkPDF.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.ForeColor = SystemColors.Control;
-            label2.Location = new Point(18, 62);
+            label2.Location = new Point(18, 63);
             label2.Name = "label2";
             label2.Size = new Size(32, 15);
             label2.TabIndex = 3;
@@ -115,7 +111,7 @@
             // 
             label1.AutoSize = true;
             label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(18, 18);
+            label1.Location = new Point(18, 19);
             label1.Name = "label1";
             label1.Size = new Size(36, 15);
             label1.TabIndex = 2;
@@ -146,7 +142,6 @@
             // 
             // emissaoBox
             // 
-            emissaoBox.Controls.Add(checkBox1);
             emissaoBox.Controls.Add(label4);
             emissaoBox.Controls.Add(label3);
             emissaoBox.Controls.Add(dateTimePicker4);
@@ -158,15 +153,6 @@
             emissaoBox.TabIndex = 3;
             emissaoBox.TabStop = false;
             emissaoBox.Text = "Emissão";
-            // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(114, 0);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(15, 14);
-            checkBox1.TabIndex = 4;
-            checkBox1.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -227,10 +213,11 @@
             // 
             radioTom.AutoSize = true;
             radioTom.ForeColor = SystemColors.Control;
-            radioTom.Location = new Point(18, 59);
+            radioTom.Location = new Point(18, 57);
             radioTom.Name = "radioTom";
             radioTom.Size = new Size(73, 19);
             radioTom.TabIndex = 1;
+            radioTom.TabStop = true;
             radioTom.Text = "Tomados";
             radioTom.UseVisualStyleBackColor = true;
             // 
@@ -239,7 +226,7 @@
             radioPres.AutoSize = true;
             radioPres.Checked = true;
             radioPres.ForeColor = SystemColors.Control;
-            radioPres.Location = new Point(18, 34);
+            radioPres.Location = new Point(18, 32);
             radioPres.Name = "radioPres";
             radioPres.Size = new Size(76, 19);
             radioPres.TabIndex = 0;
@@ -247,19 +234,31 @@
             radioPres.Text = "Prestados";
             radioPres.UseVisualStyleBackColor = true;
             // 
-            // panel1
+            // reportPanel
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.BackColor = Color.FromArgb(40, 42, 54);
-            panel1.Location = new Point(353, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(211, 532);
-            panel1.TabIndex = 5;
+            reportPanel.BackColor = Color.FromArgb(40, 42, 54);
+            reportPanel.Dock = DockStyle.Right;
+            reportPanel.Location = new Point(353, 0);
+            reportPanel.Name = "reportPanel";
+            reportPanel.Size = new Size(211, 532);
+            reportPanel.TabIndex = 5;
+            // 
+            // checkXML
+            // 
+            this.checkXML.AutoSize = true;
+            this.checkXML.Checked = true;
+            this.checkXML.CheckState = CheckState.Checked;
+            this.checkXML.Location = new Point(18, 34);
+            this.checkXML.Name = "checkXML";
+            this.checkXML.Size = new Size(50, 19);
+            this.checkXML.TabIndex = 0;
+            this.checkXML.Text = "XML";
+            this.checkXML.UseVisualStyleBackColor = true;
             // 
             // arquivosBox
             // 
-            arquivosBox.Controls.Add(checkPDF);
-            arquivosBox.Controls.Add(checkXML);
+            arquivosBox.Controls.Add(this.checkPDF);
+            arquivosBox.Controls.Add(this.checkXML);
             arquivosBox.ForeColor = SystemColors.Control;
             arquivosBox.Location = new Point(212, 417);
             arquivosBox.Name = "arquivosBox";
@@ -268,30 +267,6 @@
             arquivosBox.TabStop = false;
             arquivosBox.Text = "Arquivos";
             // 
-            // checkPDF
-            // 
-            checkPDF.AutoSize = true;
-            checkPDF.ForeColor = SystemColors.Control;
-            checkPDF.Location = new Point(18, 64);
-            checkPDF.Name = "checkPDF";
-            checkPDF.Size = new Size(47, 19);
-            checkPDF.TabIndex = 1;
-            checkPDF.Text = "PDF";
-            checkPDF.UseVisualStyleBackColor = true;
-            // 
-            // checkXML
-            // 
-            checkXML.AutoSize = true;
-            checkXML.Checked = true;
-            checkXML.CheckState = CheckState.Checked;
-            checkXML.ForeColor = SystemColors.Control;
-            checkXML.Location = new Point(18, 39);
-            checkXML.Name = "checkXML";
-            checkXML.Size = new Size(50, 19);
-            checkXML.TabIndex = 0;
-            checkXML.Text = "XML";
-            checkXML.UseVisualStyleBackColor = true;
-            // 
             // NFForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -299,12 +274,13 @@
             BackColor = Color.FromArgb(68, 71, 90);
             ClientSize = new Size(564, 532);
             Controls.Add(arquivosBox);
-            Controls.Add(panel1);
+            Controls.Add(reportPanel);
             Controls.Add(emissorBox);
             Controls.Add(emissaoBox);
             Controls.Add(competenciaBox);
-            Controls.Add(checkedListBox1);
+            Controls.Add(checkedClientList);
             Controls.Add(btNFClose);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "NFForm";
             Text = "NFForm";
             competenciaBox.ResumeLayout(false);
@@ -321,7 +297,7 @@
         #endregion
 
         private Button btNFClose;
-        private CheckedListBox checkedListBox1;
+        private CheckedListBox checkedClientList;
         private GroupBox competenciaBox;
         private DateTimePicker dateTimePicker2;
         private DateTimePicker dateTimePicker1;
@@ -329,17 +305,17 @@
         private DateTimePicker dateTimePicker3;
         private DateTimePicker dateTimePicker4;
         private GroupBox emissorBox;
-        private Panel panel1;
+        private Panel reportPanel;
         private Label label2;
         private Label label1;
         private Label label4;
         private Label label3;
         private RadioButton radioTom;
         private RadioButton radioPres;
+        private CheckBox checkPDF;
+        private CheckBox checkXML;
         private GroupBox arquivosBox;
         private CheckBox checkPDF;
         private CheckBox checkXML;
-        private CheckBox checkBox2;
-        private CheckBox checkBox1;
     }
 }

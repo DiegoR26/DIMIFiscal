@@ -75,7 +75,7 @@
             btClientOk.FlatAppearance.MouseOverBackColor = Color.FromArgb(224, 224, 224);
             btClientOk.FlatStyle = FlatStyle.Flat;
             btClientOk.ForeColor = SystemColors.ControlText;
-            btClientOk.Location = new Point(146, 360);
+            btClientOk.Location = new Point(342, 443);
             btClientOk.Name = "btClientOk";
             btClientOk.Size = new Size(75, 23);
             btClientOk.TabIndex = 5;
@@ -86,14 +86,13 @@
             // btClientCancel
             // 
             btClientCancel.BackColor = SystemColors.ControlDark;
-            btClientCancel.BackgroundImageLayout = ImageLayout.Center;
             btClientCancel.Cursor = Cursors.Hand;
             btClientCancel.FlatAppearance.BorderSize = 0;
             btClientCancel.FlatAppearance.MouseDownBackColor = Color.White;
             btClientCancel.FlatAppearance.MouseOverBackColor = Color.FromArgb(224, 224, 224);
             btClientCancel.FlatStyle = FlatStyle.Flat;
             btClientCancel.ForeColor = SystemColors.ControlText;
-            btClientCancel.Location = new Point(227, 360);
+            btClientCancel.Location = new Point(423, 443);
             btClientCancel.Name = "btClientCancel";
             btClientCancel.Size = new Size(75, 23);
             btClientCancel.TabIndex = 6;
@@ -166,7 +165,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(40, 42, 54);
-            ClientSize = new Size(331, 404);
+            ClientSize = new Size(564, 532);
             Controls.Add(checkSimples);
             Controls.Add(label5);
             Controls.Add(label4);
