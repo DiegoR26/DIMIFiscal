@@ -26,11 +26,11 @@
             btNFClose = new Button();
             checkedClientList = new CheckedListBox();
             competenciaBox = new GroupBox();
-            this.checkPDF = new CheckBox();
             label2 = new Label();
             label1 = new Label();
             dateTimePicker2 = new DateTimePicker();
             dateTimePicker1 = new DateTimePicker();
+            checkPDF = new CheckBox();
             emissaoBox = new GroupBox();
             label4 = new Label();
             label3 = new Label();
@@ -40,7 +40,7 @@
             radioTom = new RadioButton();
             radioPres = new RadioButton();
             reportPanel = new Panel();
-            this.checkXML = new CheckBox();
+            checkXML = new CheckBox();
             arquivosBox = new GroupBox();
             competenciaBox.SuspendLayout();
             emissaoBox.SuspendLayout();
@@ -87,16 +87,6 @@
             competenciaBox.TabStop = false;
             competenciaBox.Text = "Competência";
             // 
-            // checkPDF
-            // 
-            this.checkPDF.AutoSize = true;
-            this.checkPDF.Location = new Point(18, 59);
-            this.checkPDF.Name = "checkPDF";
-            this.checkPDF.Size = new Size(47, 19);
-            this.checkPDF.TabIndex = 1;
-            this.checkPDF.Text = "PDF";
-            this.checkPDF.UseVisualStyleBackColor = true;
-            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -139,6 +129,16 @@
             dateTimePicker1.TabIndex = 0;
             dateTimePicker1.Value = new DateTime(2023, 5, 11, 0, 0, 0, 0);
             dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
+            // 
+            // checkPDF
+            // 
+            checkPDF.AutoSize = true;
+            checkPDF.Location = new Point(18, 59);
+            checkPDF.Name = "checkPDF";
+            checkPDF.Size = new Size(47, 19);
+            checkPDF.TabIndex = 1;
+            checkPDF.Text = "PDF";
+            checkPDF.UseVisualStyleBackColor = true;
             // 
             // emissaoBox
             // 
@@ -236,8 +236,8 @@
             // 
             // reportPanel
             // 
+            reportPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             reportPanel.BackColor = Color.FromArgb(40, 42, 54);
-            reportPanel.Dock = DockStyle.Right;
             reportPanel.Location = new Point(353, 0);
             reportPanel.Name = "reportPanel";
             reportPanel.Size = new Size(211, 532);
@@ -245,20 +245,20 @@
             // 
             // checkXML
             // 
-            this.checkXML.AutoSize = true;
-            this.checkXML.Checked = true;
-            this.checkXML.CheckState = CheckState.Checked;
-            this.checkXML.Location = new Point(18, 34);
-            this.checkXML.Name = "checkXML";
-            this.checkXML.Size = new Size(50, 19);
-            this.checkXML.TabIndex = 0;
-            this.checkXML.Text = "XML";
-            this.checkXML.UseVisualStyleBackColor = true;
+            checkXML.AutoSize = true;
+            checkXML.Checked = true;
+            checkXML.CheckState = CheckState.Checked;
+            checkXML.Location = new Point(18, 34);
+            checkXML.Name = "checkXML";
+            checkXML.Size = new Size(50, 19);
+            checkXML.TabIndex = 0;
+            checkXML.Text = "XML";
+            checkXML.UseVisualStyleBackColor = true;
             // 
             // arquivosBox
             // 
-            arquivosBox.Controls.Add(this.checkPDF);
-            arquivosBox.Controls.Add(this.checkXML);
+            arquivosBox.Controls.Add(checkPDF);
+            arquivosBox.Controls.Add(checkXML);
             arquivosBox.ForeColor = SystemColors.Control;
             arquivosBox.Location = new Point(212, 417);
             arquivosBox.Name = "arquivosBox";
@@ -312,8 +312,6 @@
         private Label label3;
         private RadioButton radioTom;
         private RadioButton radioPres;
-        private CheckBox checkPDF;
-        private CheckBox checkXML;
         private GroupBox arquivosBox;
         private CheckBox checkPDF;
         private CheckBox checkXML;

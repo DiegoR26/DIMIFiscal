@@ -141,6 +141,7 @@
             Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             MinimumSize = new Size(800, 571);
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             sideMenuPanel.ResumeLayout(false);
             ResumeLayout(false);

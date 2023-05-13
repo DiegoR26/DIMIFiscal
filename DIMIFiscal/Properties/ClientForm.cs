@@ -44,6 +44,7 @@ namespace DIMIFiscal.Properties {
         }*/
 
         private void btClientClose_Click(object sender, EventArgs e) {
+            Dispose();
             Close();
         }
 

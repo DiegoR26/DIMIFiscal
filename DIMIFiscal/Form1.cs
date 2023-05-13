@@ -3,10 +3,9 @@ using DIMIFiscal.Properties;
 namespace DIMIFiscal {
     public partial class Form1 : Form {
 
-        public Form ClientBase = new ClientForm();
-        public Form NFBase = new NFForm();
-        public Form Config = new ConfigForm();
-        public Form ClientData = new ClientView();
+        public Form ClientBase;
+        public Form NFBase;
+        public Form Config;
 
         private Form activeWindow = null;
 
@@ -18,6 +17,7 @@ namespace DIMIFiscal {
         public void openWindow(Form window) {
 
             if (activeWindow != null) {
+                activeWindow.Dispose();
                 activeWindow.Close();
             }
 
@@ -31,18 +31,18 @@ namespace DIMIFiscal {
         }
 
         private void btClientes_Click(object sender, EventArgs e) {
+            ClientBase = new ClientForm();
             openWindow(ClientBase);
-
         }
 
         private void btNotas_Click(object sender, EventArgs e) {
+            NFBase = new NFForm();
             openWindow(NFBase);
-
         }
 
         private void btConfig_Click(object sender, EventArgs e) {
+            Config = new ConfigForm();
             openWindow(Config);
-
         }
 
         private void btSair_Click(object sender, EventArgs e) {

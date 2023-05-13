@@ -15,7 +15,8 @@ namespace DIMIFiscal {
         }
 
         private void btConfigClose_Click(object sender, EventArgs e) {
-            this.Close();
+            Dispose();
+            Close();
         }
     }
 }

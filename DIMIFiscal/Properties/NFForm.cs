@@ -16,7 +16,8 @@ namespace DIMIFiscal.Properties {
         }
 
         private void btNFClose_Click(object sender, EventArgs e) {
-            this.Close();
+            Dispose();
+            Close();
         }
 
         private void dateTimePicker3_ValueChanged(object sender, EventArgs e) {
