@@ -16,17 +16,21 @@ namespace DIMIFiscal {
         public List<Client> GetAllClients() {
             List<Client> clients = new List<Client>();
 
-            string[] lines = File.ReadAllLines(FilePath);
+            try {
+                string[] lines = File.ReadAllLines(FilePath);
 
-            foreach (string line in lines) {
-                string[] parts = line.Split(',');
-                Client client = new Client();
-                client.Id = parts[0];
-                client.Name = parts[1];
-                client.User = parts[2];
-                client.Password = parts[3];
-                client.SimplesNacional = parts[4];
-                clients.Add(client);
+                foreach (string line in lines) {
+                    string[] parts = line.Split(',');
+                    Client client = new Client();
+                    client.Id = parts[0];
+                    client.Name = parts[1];
+                    client.User = parts[2];
+                    client.Password = parts[3];
+                    client.SimplesNacional = parts[4];
+                    clients.Add(client);
+                }
+            } catch (Exception ex) {
+                Console.WriteLine("Erro lendo dados: " + ex.Message);
             }
 
             return clients;
@@ -34,36 +38,48 @@ namespace DIMIFiscal {
 
         public void AddClient(Client client) {
             string line = $"{client.Id},{client.Name},{client.User},{client.Password},{client.SimplesNacional}";
-            File.AppendAllText(FilePath, line + Environment.NewLine );
+
+            try {
+                File.AppendAllText(FilePath, line + Environment.NewLine);
+            } catch (Exception ex) {
+                Console.WriteLine("Erro ao adicionar cliente: " + ex.Message);
+            }
         }
 
         public void EditClient(Client client) {
-            List<string> lines = File.ReadAllLines(FilePath).ToList();
+            try {
+                List<string> lines = File.ReadAllLines(FilePath).ToList();
 
-            for (int i = 0; i < lines.Count; i++) {
-                string[] parts = lines[i].Split(",");
-                if (parts[0] == client.Name) {
-                    lines[i] = $"{client.Id},{client.Name},{client.User},{client.Password},{client.SimplesNacional}";
-                    break;
+                for (int i = 0; i < lines.Count; i++) {
+                    string[] parts = lines[i].Split(",");
+                    if (parts[0] == client.Name) {
+                        lines[i] = $"{client.Id},{client.Name},{client.User},{client.Password},{client.SimplesNacional}";
+                        break;
+                    }
                 }
-            }
 
-            File.WriteAllLines(FilePath, lines);
+                File.WriteAllLines(FilePath, lines);
+            } catch (Exception ex) {
+                Console.WriteLine("Erro ao editar cliente: " + ex.Message);
+            }
         }
 
         public void DeleteClient(string name) {
-            List<string> lines = File.ReadAllLines(FilePath).ToList();
+            try {
+                List<string> lines = File.ReadAllLines(FilePath).ToList();
 
-            for (int i = 0; i < lines.Count; i++) {
-                string[] parts = lines[i].Split(",");
-                if (parts[0] == name) {
-                    lines.RemoveAt(i);
-                    break;
+                for (int i = 0; i < lines.Count; i++) {
+                    string[] parts = lines[i].Split(",");
+                    if (parts[0] == name) {
+                        lines.RemoveAt(i);
+                        break;
+                    }
                 }
+
+                File.WriteAllLines(FilePath, lines);
+            } catch (Exception ex) {
+                Console.WriteLine("Erro ao editar cliente: " + ex.Message);
             }
-
-            File.WriteAllLines(FilePath, lines);
         }
-
     }
 }
