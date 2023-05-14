@@ -7,10 +7,17 @@ namespace DIMIFiscal {
         public Form NFBase;
         public Form Config;
 
+        public ClientAcess CAcess;
+
         private Form activeWindow = null;
 
         public Form1() {
             InitializeComponent();
+
+            string fileName = "ClientsDB.txt";
+            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), fileName);
+
+            CAcess = new ClientAcess(path);
 
         }
 
@@ -33,6 +40,11 @@ namespace DIMIFiscal {
         private void btClientes_Click(object sender, EventArgs e) {
             ClientBase = new ClientForm();
             openWindow(ClientBase);
+
+            if (ClientBase is ClientForm clientForm) {
+                clientForm.hideSaveCancelBts();
+            }
+
         }
 
         private void btNotas_Click(object sender, EventArgs e) {

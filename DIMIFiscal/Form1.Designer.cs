@@ -58,7 +58,7 @@
             btConfig.Name = "btConfig";
             btConfig.Padding = new Padding(10, 0, 0, 0);
             btConfig.Size = new Size(220, 40);
-            btConfig.TabIndex = 4;
+            btConfig.TabIndex = 3;
             btConfig.Text = "Configurações";
             btConfig.TextAlign = ContentAlignment.MiddleLeft;
             btConfig.UseVisualStyleBackColor = true;
@@ -74,7 +74,7 @@
             btSair.Name = "btSair";
             btSair.Padding = new Padding(10, 0, 0, 0);
             btSair.Size = new Size(220, 40);
-            btSair.TabIndex = 3;
+            btSair.TabIndex = 4;
             btSair.Text = "Sair";
             btSair.TextAlign = ContentAlignment.MiddleLeft;
             btSair.UseVisualStyleBackColor = true;

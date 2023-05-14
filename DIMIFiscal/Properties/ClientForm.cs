@@ -12,36 +12,66 @@ using System.Windows.Forms;
 namespace DIMIFiscal.Properties {
     public partial class ClientForm : Form {
 
+        public string clientId { get { return txtId.Text; } }
+        public string clientName { get { return txtName.Text; } }
+        public string clientUser { get { return txtUser.Text; } }
+        public string clientPassword { get { return txtPassword.Text; } }
+        public string clientSNacional {
+            get {
+                if (checkSimples.Checked) {
+                    return "Sim";
+                } else {
+                    return "Nao";
+                }
+            }
+        }
+
+        private string saveSituation;
+
+
         public DataGridView ClientGrid { get { return clientGrid; } }
+
+        public ClientAcess cAcess;
 
 
         public ClientForm() {
             InitializeComponent();
 
-            //string fileName = "ClientsDB.txt";
-            //string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), fileName);
+
+            string fileName = "ClientsDB.txt";
+            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), fileName);
+
+            cAcess = new ClientAcess(path);
+
+            BindingSource bindingSource = new BindingSource();
+            bindingSource.DataSource = cAcess.GetAllClients();
+
+            clientGrid.DataSource = bindingSource;
 
         }
 
-        /*private Form activeWindowClient = null;
-        public void openWindowClient(Form window) {
+        public void hideSaveCancelBts() {
+            btSave.Visible = false;
+            btCancel.Visible = false;
+        }
 
-            if (activeWindowClient != null) {
-                activeWindowClient.Close();
-            }
-            activeWindowClient = window;
+        public void showSaveCancelBts() {
+            btSave.Visible = true;
+            btCancel.Visible = true;
+        }
 
-            window.TopLevel = false;
-            window.TopMost = true;
-            window.FormBorderStyle = FormBorderStyle.None;
-            
-            Controls.Add(window);
-            Tag = window;
-            window.BringToFront();
-            window.Show();
+        public void hideMainBts() {
+            btAddClient.Visible = false;
+            btEditClient.Visible = false;
+            btDelClient.Visible = false;
+        }
 
-            window.Location = new Point((this.ClientSize.Width - window.Width) / 2, (this.ClientSize.Height - window.Height) / 2);
-        }*/
+        public void showMainBts() {
+            btAddClient.Visible = true;
+            btEditClient.Visible = true;
+            btDelClient.Visible = true;
+        }
+
 
         private void btClientClose_Click(object sender, EventArgs e) {
             Dispose();
@@ -49,9 +79,103 @@ namespace DIMIFiscal.Properties {
         }
 
         private void btAddClient_Click(object sender, EventArgs e) {
+            hideMainBts();
+            showSaveCancelBts();
+
+            saveSituation = "add";
+
+            txtId.Text = string.Empty;
+            txtName.Text = string.Empty;
+            txtUser.Text = string.Empty;
+            txtPassword.Text = string.Empty;
+            checkSimples.Checked = false;
+      
+        }
+
+        private void btEditClient_Click(object sender, EventArgs e) {
+            hideMainBts();
+            showSaveCancelBts();
+
+            saveSituation = "edit";
+      
+        }
+
+        private void btDelClient_Click(object sender, EventArgs e) {
+
 
 
         }
 
+        private void btSave_Click(object sender, EventArgs e) {
+
+            if (saveSituation == "edit") {
+
+                if (getClientOnList() != null) {
+                    hideSaveCancelBts();
+                    showMainBts();
+
+                    if (testEmptyFields()) {
+                        cAcess.EditClient(getClientOnList());
+                    }
+
+                    saveSituation = null;
+                } else {
+                    MessageBox.Show("Cliente não cadastrado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                
+
+            } else if (saveSituation == "add") {
+
+                if (getClientOnList() == null) {
+                    hideSaveCancelBts();
+                    showMainBts();
+
+                    if (testEmptyFields()) {
+                        Client client = new Client(clientId, clientName, clientUser, clientPassword, clientSNacional);
+                        cAcess.AddClient(client);
+                    }
+
+                    saveSituation = null;
+                } else {
+                    MessageBox.Show("Cliente já cadastrado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+            }
+
+            
+        }
+
+        private void btCancel_Click(object sender, EventArgs e) {
+            hideSaveCancelBts();
+            showMainBts();
+
+
+        }
+
+        private bool testEmptyFields() {
+
+            if (clientId == string.Empty || clientName == string.Empty || clientUser == string.Empty || clientPassword == string.Empty) {
+                MessageBox.Show("Existem campos vazios!", "Aviso", MessageBoxButtons.OK);
+                return false;
+            } else {
+                return true;
+            }
+            
+        }
+
+        private Client getClientOnList() {
+            Client client = null;
+
+            List<Client> clientes = cAcess.GetAllClients();
+
+            for (int i = 0; i < clientes.Count; i++) {
+                if (clientes[i].User == txtUser.Text) {
+                    client = clientes[i];
+                    break;
+                }
+            }
+
+            return client;
+        }
     }
 }
