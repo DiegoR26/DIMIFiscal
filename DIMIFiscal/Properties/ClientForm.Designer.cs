@@ -23,6 +23,9 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             btClientClose = new Button();
             clientGrid = new DataGridView();
             checkSimples = new CheckBox();
@@ -62,12 +65,38 @@
             // 
             // clientGrid
             // 
+            clientGrid.AllowUserToAddRows = false;
+            clientGrid.AllowUserToDeleteRows = false;
             clientGrid.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             clientGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             clientGrid.BackgroundColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            clientGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             clientGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            clientGrid.DefaultCellStyle = dataGridViewCellStyle2;
             clientGrid.Location = new Point(17, 209);
             clientGrid.Name = "clientGrid";
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            clientGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             clientGrid.RowTemplate.Height = 25;
             clientGrid.Size = new Size(535, 303);
             clientGrid.TabIndex = 11;

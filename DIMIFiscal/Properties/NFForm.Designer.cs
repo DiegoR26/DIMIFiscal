@@ -42,6 +42,7 @@
             reportPanel = new Panel();
             checkXML = new CheckBox();
             arquivosBox = new GroupBox();
+            btBaixarNF = new Button();
             competenciaBox.SuspendLayout();
             emissaoBox.SuspendLayout();
             emissorBox.SuspendLayout();
@@ -80,7 +81,7 @@
             competenciaBox.Controls.Add(dateTimePicker2);
             competenciaBox.Controls.Add(dateTimePicker1);
             competenciaBox.ForeColor = SystemColors.Control;
-            competenciaBox.Location = new Point(212, 48);
+            competenciaBox.Location = new Point(212, 41);
             competenciaBox.Name = "competenciaBox";
             competenciaBox.Size = new Size(135, 127);
             competenciaBox.TabIndex = 2;
@@ -133,7 +134,7 @@
             // checkPDF
             // 
             checkPDF.AutoSize = true;
-            checkPDF.Location = new Point(18, 59);
+            checkPDF.Location = new Point(18, 47);
             checkPDF.Name = "checkPDF";
             checkPDF.Size = new Size(47, 19);
             checkPDF.TabIndex = 1;
@@ -147,7 +148,7 @@
             emissaoBox.Controls.Add(dateTimePicker4);
             emissaoBox.Controls.Add(dateTimePicker3);
             emissaoBox.ForeColor = SystemColors.Control;
-            emissaoBox.Location = new Point(212, 181);
+            emissaoBox.Location = new Point(212, 174);
             emissaoBox.Name = "emissaoBox";
             emissaoBox.Size = new Size(135, 127);
             emissaoBox.TabIndex = 3;
@@ -202,9 +203,9 @@
             emissorBox.Controls.Add(radioTom);
             emissorBox.Controls.Add(radioPres);
             emissorBox.ForeColor = SystemColors.Control;
-            emissorBox.Location = new Point(212, 314);
+            emissorBox.Location = new Point(212, 307);
             emissorBox.Name = "emissorBox";
-            emissorBox.Size = new Size(135, 97);
+            emissorBox.Size = new Size(135, 79);
             emissorBox.TabIndex = 4;
             emissorBox.TabStop = false;
             emissorBox.Text = "Emissor";
@@ -213,7 +214,7 @@
             // 
             radioTom.AutoSize = true;
             radioTom.ForeColor = SystemColors.Control;
-            radioTom.Location = new Point(18, 57);
+            radioTom.Location = new Point(18, 47);
             radioTom.Name = "radioTom";
             radioTom.Size = new Size(73, 19);
             radioTom.TabIndex = 1;
@@ -226,7 +227,7 @@
             radioPres.AutoSize = true;
             radioPres.Checked = true;
             radioPres.ForeColor = SystemColors.Control;
-            radioPres.Location = new Point(18, 32);
+            radioPres.Location = new Point(18, 22);
             radioPres.Name = "radioPres";
             radioPres.Size = new Size(76, 19);
             radioPres.TabIndex = 0;
@@ -248,7 +249,7 @@
             checkXML.AutoSize = true;
             checkXML.Checked = true;
             checkXML.CheckState = CheckState.Checked;
-            checkXML.Location = new Point(18, 34);
+            checkXML.Location = new Point(18, 22);
             checkXML.Name = "checkXML";
             checkXML.Size = new Size(50, 19);
             checkXML.TabIndex = 0;
@@ -260,12 +261,29 @@
             arquivosBox.Controls.Add(checkPDF);
             arquivosBox.Controls.Add(checkXML);
             arquivosBox.ForeColor = SystemColors.Control;
-            arquivosBox.Location = new Point(212, 417);
+            arquivosBox.Location = new Point(212, 392);
             arquivosBox.Name = "arquivosBox";
-            arquivosBox.Size = new Size(135, 103);
+            arquivosBox.Size = new Size(135, 73);
             arquivosBox.TabIndex = 6;
             arquivosBox.TabStop = false;
             arquivosBox.Text = "Arquivos";
+            // 
+            // btBaixarNF
+            // 
+            btBaixarNF.BackColor = SystemColors.ControlDark;
+            btBaixarNF.Cursor = Cursors.Hand;
+            btBaixarNF.FlatAppearance.BorderSize = 0;
+            btBaixarNF.FlatAppearance.CheckedBackColor = Color.White;
+            btBaixarNF.FlatAppearance.MouseDownBackColor = Color.White;
+            btBaixarNF.FlatAppearance.MouseOverBackColor = Color.FromArgb(224, 224, 224);
+            btBaixarNF.FlatStyle = FlatStyle.Flat;
+            btBaixarNF.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btBaixarNF.Location = new Point(212, 471);
+            btBaixarNF.Name = "btBaixarNF";
+            btBaixarNF.Size = new Size(135, 35);
+            btBaixarNF.TabIndex = 7;
+            btBaixarNF.Text = "Iniciar";
+            btBaixarNF.UseVisualStyleBackColor = false;
             // 
             // NFForm
             // 
@@ -273,6 +291,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(68, 71, 90);
             ClientSize = new Size(564, 532);
+            Controls.Add(btBaixarNF);
             Controls.Add(arquivosBox);
             Controls.Add(reportPanel);
             Controls.Add(emissorBox);
@@ -315,5 +334,6 @@
         private GroupBox arquivosBox;
         private CheckBox checkPDF;
         private CheckBox checkXML;
+        private Button btBaixarNF;
     }
 }

@@ -89,7 +89,7 @@ namespace DIMIFiscal.Properties {
             txtUser.Text = string.Empty;
             txtPassword.Text = string.Empty;
             checkSimples.Checked = false;
-      
+
         }
 
         private void btEditClient_Click(object sender, EventArgs e) {
@@ -97,7 +97,7 @@ namespace DIMIFiscal.Properties {
             showSaveCancelBts();
 
             saveSituation = "edit";
-      
+
         }
 
         private void btDelClient_Click(object sender, EventArgs e) {
@@ -122,7 +122,7 @@ namespace DIMIFiscal.Properties {
                 } else {
                     MessageBox.Show("Cliente não cadastrado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                
+
 
             } else if (saveSituation == "add") {
 
@@ -142,7 +142,7 @@ namespace DIMIFiscal.Properties {
 
             }
 
-            
+
         }
 
         private void btCancel_Click(object sender, EventArgs e) {
@@ -160,7 +160,7 @@ namespace DIMIFiscal.Properties {
             } else {
                 return true;
             }
-            
+
         }
 
         private Client getClientOnList() {
