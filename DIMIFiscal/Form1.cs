@@ -3,11 +3,13 @@ using DIMIFiscal.Properties;
 namespace DIMIFiscal {
     public partial class Form1 : Form {
 
-        public Form ClientBase;
-        public Form NFBase;
-        public Form Config;
+        public ClientForm ClientBase;
+        public NFForm NFBase;
+        public ConfigForm Config;
 
         public ClientAcess CAcess;
+
+        public List<Client> clientList = new List<Client> ();
 
         private Form activeWindow = null;
 
@@ -18,6 +20,8 @@ namespace DIMIFiscal {
             string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), fileName);
 
             CAcess = new ClientAcess(path);
+
+            clientList = CAcess.GetAllClients();
 
         }
 
@@ -41,15 +45,17 @@ namespace DIMIFiscal {
             ClientBase = new ClientForm();
             openWindow(ClientBase);
 
-            if (ClientBase is ClientForm clientForm) {
-                clientForm.hideSaveCancelBts();
-            }
+            ClientBase.hideSaveCancelBts();
+            ClientBase.disableFields();
 
         }
 
         private void btNotas_Click(object sender, EventArgs e) {
             NFBase = new NFForm();
             openWindow(NFBase);
+
+            NFBase.setClientList(clientList);
+            
         }
 
         private void btConfig_Click(object sender, EventArgs e) {

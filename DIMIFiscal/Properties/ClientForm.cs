@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenQA.Selenium.DevTools.V111.Network;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,7 +40,7 @@ namespace DIMIFiscal.Properties {
 
 
             string fileName = "ClientsDB.txt";
-            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), fileName);
+            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), fileName);
 
             cAcess = new ClientAcess(path);
 
@@ -73,6 +74,23 @@ namespace DIMIFiscal.Properties {
         }
 
 
+        public void disableFields() {
+            txtId.Enabled = false;
+            txtName.Enabled = false;
+            txtUser.Enabled = false;
+            txtPassword.Enabled = false;
+            checkSimples.Enabled = false;
+        }
+
+        public void enableFields() {
+            txtId.Enabled = true;
+            txtName.Enabled = true;
+            txtUser.Enabled = true;
+            txtPassword.Enabled = true;
+            checkSimples.Enabled = true;
+        }
+
+
         private void btClientClose_Click(object sender, EventArgs e) {
             Dispose();
             Close();
@@ -81,6 +99,7 @@ namespace DIMIFiscal.Properties {
         private void btAddClient_Click(object sender, EventArgs e) {
             hideMainBts();
             showSaveCancelBts();
+            enableFields();
 
             saveSituation = "add";
 
@@ -95,13 +114,16 @@ namespace DIMIFiscal.Properties {
         private void btEditClient_Click(object sender, EventArgs e) {
             hideMainBts();
             showSaveCancelBts();
+            enableFields();
 
             saveSituation = "edit";
 
         }
 
         private void btDelClient_Click(object sender, EventArgs e) {
-
+            hideMainBts();
+            showSaveCancelBts();
+            enableFields();
 
 
         }
@@ -129,6 +151,7 @@ namespace DIMIFiscal.Properties {
                 if (getClientOnList() == null) {
                     hideSaveCancelBts();
                     showMainBts();
+                    disableFields();
 
                     if (testEmptyFields()) {
                         Client client = new Client(clientId, clientName, clientUser, clientPassword, clientSNacional);
@@ -148,6 +171,7 @@ namespace DIMIFiscal.Properties {
         private void btCancel_Click(object sender, EventArgs e) {
             hideSaveCancelBts();
             showMainBts();
+            disableFields();
 
 
         }
@@ -169,13 +193,17 @@ namespace DIMIFiscal.Properties {
             List<Client> clientes = cAcess.GetAllClients();
 
             for (int i = 0; i < clientes.Count; i++) {
-                if (clientes[i].User == txtUser.Text) {
+                if (clientes[i].Id == txtId.Text) {
                     client = clientes[i];
                     break;
                 }
             }
 
-            return client;
+            if (client == null) {
+                return null;
+            } else {
+                return client;
+            }
         }
     }
 }

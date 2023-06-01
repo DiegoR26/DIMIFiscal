@@ -20,7 +20,7 @@ namespace DIMIFiscal {
                 string[] lines = File.ReadAllLines(FilePath);
 
                 foreach (string line in lines) {
-                    string[] parts = line.Split(',');
+                    string[] parts = line.Split(';');
                     Client client = new Client();
                     client.Id = parts[0];
                     client.Name = parts[1];
@@ -37,7 +37,7 @@ namespace DIMIFiscal {
         }
 
         public void AddClient(Client client) {
-            string line = $"{client.Id},{client.Name},{client.User},{client.Password},{client.SimplesNacional}";
+            string line = $"{client.Id};{client.Name};{client.User};{client.Password};{client.SimplesNacional}";
 
             try {
                 File.AppendAllText(FilePath, line + Environment.NewLine);
@@ -51,9 +51,9 @@ namespace DIMIFiscal {
                 List<string> lines = File.ReadAllLines(FilePath).ToList();
 
                 for (int i = 0; i < lines.Count; i++) {
-                    string[] parts = lines[i].Split(",");
-                    if (parts[0] == client.Name) {
-                        lines[i] = $"{client.Id},{client.Name},{client.User},{client.Password},{client.SimplesNacional}";
+                    string[] parts = lines[i].Split(";");
+                    if (parts[0] == client.Id) {
+                        lines[i] = $"{client.Id};{client.Name};{client.User};{client.Password};{client.SimplesNacional}";
                         break;
                     }
                 }
@@ -64,13 +64,13 @@ namespace DIMIFiscal {
             }
         }
 
-        public void DeleteClient(string name) {
+        public void DeleteClient(string id) {
             try {
                 List<string> lines = File.ReadAllLines(FilePath).ToList();
 
                 for (int i = 0; i < lines.Count; i++) {
-                    string[] parts = lines[i].Split(",");
-                    if (parts[0] == name) {
+                    string[] parts = lines[i].Split(";");
+                    if (parts[0] == id) {
                         lines.RemoveAt(i);
                         break;
                     }
@@ -78,7 +78,7 @@ namespace DIMIFiscal {
 
                 File.WriteAllLines(FilePath, lines);
             } catch (Exception ex) {
-                Console.WriteLine("Erro ao editar cliente: " + ex.Message);
+                Console.WriteLine("Erro ao deletar cliente: " + ex.Message);
             }
         }
     }

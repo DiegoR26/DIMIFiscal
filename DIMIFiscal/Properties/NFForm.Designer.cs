@@ -28,14 +28,14 @@
             competenciaBox = new GroupBox();
             label2 = new Label();
             label1 = new Label();
-            dateTimePicker2 = new DateTimePicker();
-            dateTimePicker1 = new DateTimePicker();
+            dtCompFin = new DateTimePicker();
+            dtCompIni = new DateTimePicker();
             checkPDF = new CheckBox();
             emissaoBox = new GroupBox();
             label4 = new Label();
             label3 = new Label();
-            dateTimePicker4 = new DateTimePicker();
-            dateTimePicker3 = new DateTimePicker();
+            dtEmitFin = new DateTimePicker();
+            dtEmitIni = new DateTimePicker();
             emissorBox = new GroupBox();
             radioTom = new RadioButton();
             radioPres = new RadioButton();
@@ -78,8 +78,8 @@
             // 
             competenciaBox.Controls.Add(label2);
             competenciaBox.Controls.Add(label1);
-            competenciaBox.Controls.Add(dateTimePicker2);
-            competenciaBox.Controls.Add(dateTimePicker1);
+            competenciaBox.Controls.Add(dtCompFin);
+            competenciaBox.Controls.Add(dtCompIni);
             competenciaBox.ForeColor = SystemColors.Control;
             competenciaBox.Location = new Point(212, 41);
             competenciaBox.Name = "competenciaBox";
@@ -108,28 +108,28 @@
             label1.TabIndex = 2;
             label1.Text = "Início";
             // 
-            // dateTimePicker2
+            // dtCompFin
             // 
-            dateTimePicker2.Cursor = Cursors.Hand;
-            dateTimePicker2.CustomFormat = "dd/MM/yyyy";
-            dateTimePicker2.Format = DateTimePickerFormat.Custom;
-            dateTimePicker2.Location = new Point(18, 81);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(98, 23);
-            dateTimePicker2.TabIndex = 1;
-            dateTimePicker2.Value = new DateTime(2023, 5, 11, 0, 0, 0, 0);
+            dtCompFin.Cursor = Cursors.Hand;
+            dtCompFin.CustomFormat = "dd/MM/yyyy";
+            dtCompFin.Format = DateTimePickerFormat.Custom;
+            dtCompFin.Location = new Point(18, 81);
+            dtCompFin.Name = "dtCompFin";
+            dtCompFin.Size = new Size(98, 23);
+            dtCompFin.TabIndex = 1;
+            dtCompFin.Value = new DateTime(2023, 5, 11, 0, 0, 0, 0);
             // 
-            // dateTimePicker1
+            // dtCompIni
             // 
-            dateTimePicker1.Cursor = Cursors.Hand;
-            dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.Location = new Point(18, 36);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(98, 23);
-            dateTimePicker1.TabIndex = 0;
-            dateTimePicker1.Value = new DateTime(2023, 5, 11, 0, 0, 0, 0);
-            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
+            dtCompIni.Cursor = Cursors.Hand;
+            dtCompIni.CustomFormat = "dd/MM/yyyy";
+            dtCompIni.Format = DateTimePickerFormat.Custom;
+            dtCompIni.Location = new Point(18, 36);
+            dtCompIni.Name = "dtCompIni";
+            dtCompIni.Size = new Size(98, 23);
+            dtCompIni.TabIndex = 0;
+            dtCompIni.Value = new DateTime(2023, 5, 11, 0, 0, 0, 0);
+            dtCompIni.ValueChanged += dateTimePicker1_ValueChanged;
             // 
             // checkPDF
             // 
@@ -145,8 +145,8 @@
             // 
             emissaoBox.Controls.Add(label4);
             emissaoBox.Controls.Add(label3);
-            emissaoBox.Controls.Add(dateTimePicker4);
-            emissaoBox.Controls.Add(dateTimePicker3);
+            emissaoBox.Controls.Add(dtEmitFin);
+            emissaoBox.Controls.Add(dtEmitIni);
             emissaoBox.ForeColor = SystemColors.Control;
             emissaoBox.Location = new Point(212, 174);
             emissaoBox.Name = "emissaoBox";
@@ -175,28 +175,28 @@
             label3.TabIndex = 2;
             label3.Text = "Início";
             // 
-            // dateTimePicker4
+            // dtEmitFin
             // 
-            dateTimePicker4.Cursor = Cursors.Hand;
-            dateTimePicker4.CustomFormat = "dd/MM/yyyy";
-            dateTimePicker4.Format = DateTimePickerFormat.Custom;
-            dateTimePicker4.Location = new Point(18, 82);
-            dateTimePicker4.Name = "dateTimePicker4";
-            dateTimePicker4.Size = new Size(98, 23);
-            dateTimePicker4.TabIndex = 1;
-            dateTimePicker4.Value = new DateTime(2023, 5, 11, 0, 0, 0, 0);
+            dtEmitFin.Cursor = Cursors.Hand;
+            dtEmitFin.CustomFormat = "dd/MM/yyyy";
+            dtEmitFin.Format = DateTimePickerFormat.Custom;
+            dtEmitFin.Location = new Point(18, 82);
+            dtEmitFin.Name = "dtEmitFin";
+            dtEmitFin.Size = new Size(98, 23);
+            dtEmitFin.TabIndex = 1;
+            dtEmitFin.Value = new DateTime(2023, 5, 11, 0, 0, 0, 0);
             // 
-            // dateTimePicker3
+            // dtEmitIni
             // 
-            dateTimePicker3.Cursor = Cursors.Hand;
-            dateTimePicker3.CustomFormat = "dd/MM/yyyy";
-            dateTimePicker3.Format = DateTimePickerFormat.Custom;
-            dateTimePicker3.Location = new Point(18, 37);
-            dateTimePicker3.Name = "dateTimePicker3";
-            dateTimePicker3.Size = new Size(98, 23);
-            dateTimePicker3.TabIndex = 0;
-            dateTimePicker3.Value = new DateTime(2023, 5, 11, 0, 0, 0, 0);
-            dateTimePicker3.ValueChanged += dateTimePicker3_ValueChanged;
+            dtEmitIni.Cursor = Cursors.Hand;
+            dtEmitIni.CustomFormat = "dd/MM/yyyy";
+            dtEmitIni.Format = DateTimePickerFormat.Custom;
+            dtEmitIni.Location = new Point(18, 37);
+            dtEmitIni.Name = "dtEmitIni";
+            dtEmitIni.Size = new Size(98, 23);
+            dtEmitIni.TabIndex = 0;
+            dtEmitIni.Value = new DateTime(2023, 5, 11, 0, 0, 0, 0);
+            dtEmitIni.ValueChanged += dateTimePicker3_ValueChanged;
             // 
             // emissorBox
             // 
@@ -284,6 +284,7 @@
             btBaixarNF.TabIndex = 7;
             btBaixarNF.Text = "Iniciar";
             btBaixarNF.UseVisualStyleBackColor = false;
+            btBaixarNF.Click += btBaixarNF_Click;
             // 
             // NFForm
             // 
@@ -318,11 +319,11 @@
         private Button btNFClose;
         private CheckedListBox checkedClientList;
         private GroupBox competenciaBox;
-        private DateTimePicker dateTimePicker2;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtCompFin;
+        private DateTimePicker dtCompIni;
         private GroupBox emissaoBox;
-        private DateTimePicker dateTimePicker3;
-        private DateTimePicker dateTimePicker4;
+        private DateTimePicker dtEmitIni;
+        private DateTimePicker dtEmitFin;
         private GroupBox emissorBox;
         private Panel reportPanel;
         private Label label2;
