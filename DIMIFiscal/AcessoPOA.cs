@@ -2,7 +2,7 @@
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
-using System;
+
 
 
 namespace DIMIFiscal {
@@ -78,13 +78,30 @@ namespace DIMIFiscal {
 
             options.SetPreference("moz:webdriverClick.DEFAULT_LINK_BEHAVIOR", 0);
 
-            options.AddArgument("--headless");
+            //options.AddArgument("--headless");
 
             options.Profile = profile;
 
             return new FirefoxDriver(options);
         }
 
+        public void baixarPDF(int NF) {
+            string NrNF = Browser.FindElement(By.XPath("//*[@id=\"form:j_id160:listaNotas:" + NF + ":j_id179\"]")).GetAttribute("innerText").Replace('/', '-'); ;
+
+            WebDriverWait wait = new WebDriverWait(Browser, TimeSpan.FromSeconds(10));
+
+            Browser.FindElement(By.XPath("//*[@id=\"form:j_id160:listaNotas:" + NF + ":j_id179\"]")).Click();
+            wait.Until(driver => driver.Url.Equals(siteDentroNF));
+            wait.Until(driver => ((IJavaScriptExecutor)driver).ExecuteScript("return document.readyState").Equals("complete"));
+
+            string fileName = $"NF_{NrNF}.png";
+            string fullPath = Path.Combine(getPath(), fileName);
+
+            Screenshot screenshot = ((ITakesScreenshot)Browser).GetScreenshot();
+            screenshot.SaveAsFile(fullPath, ScreenshotImageFormat.Png);
+
+            Browser.Navigate().Back();
+        }
 
         public void validarAcessoPOA() {
             Browser = GetFireFoxDriver();
@@ -99,7 +116,7 @@ namespace DIMIFiscal {
 
             wait.Until(driver => ((IJavaScriptExecutor)driver).ExecuteScript("return document.readyState").Equals("complete"));
 
-            Browser.Navigate().GoToUrl(siteValidado);
+            Thread.Sleep(5000);
 
             if (Browser.Url == siteValidado) {
 
@@ -109,8 +126,7 @@ namespace DIMIFiscal {
                 IWebElement campoData;
 
                 wait.Until(driver => ((IJavaScriptExecutor)driver).ExecuteScript("return document.readyState").Equals("complete"));
-                Thread.Sleep(2000);
-
+                
                 campoData = Browser.FindElement(By.XPath("//*[@id=\"form:dtCompetenciaInicial\"]"));
                 actions.MoveToElement(campoData).Click().Build().Perform();
                 Thread.Sleep(200);
@@ -131,6 +147,7 @@ namespace DIMIFiscal {
                 Thread.Sleep(200);
                 actions.SendKeys(dtEmitFin).Build().Perform();
 
+
                 if (emissor == "prestados") {
                     Browser.FindElement(By.XPath("//*[@id=\"form:perfil:0\"]")).Click();
                 } else if (emissor == "tomados") {
@@ -146,7 +163,7 @@ namespace DIMIFiscal {
 
                 Thread.Sleep(5000);
 
-                string NrNF;
+                //string NrNF;
 
                 int NF = 0;
                 int PG = 4;
@@ -158,19 +175,7 @@ namespace DIMIFiscal {
                         }
 
                         if (arqPDF == "PDFSim") {
-                            NrNF = Browser.FindElement(By.XPath("//*[@id=\"form:j_id160:listaNotas:" + NF + ":j_id179\"]")).GetAttribute("innerText").Replace('/', '-'); ;
-
-                            Browser.FindElement(By.XPath("//*[@id=\"form:j_id160:listaNotas:" + NF + ":j_id179\"]")).Click();
-                            wait.Until(driver => driver.Url.Equals(siteDentroNF));
-                            wait.Until(driver => ((IJavaScriptExecutor)driver).ExecuteScript("return document.readyState").Equals("complete"));
-
-                            string fileName = $"NF_{NrNF}.png";
-                            string fullPath = Path.Combine(getPath(), fileName);
-
-                            Screenshot screenshot = ((ITakesScreenshot)Browser).GetScreenshot();
-                            screenshot.SaveAsFile(fullPath, ScreenshotImageFormat.Png);
-
-                            Browser.Navigate().Back();
+                            baixarPDF(NF);
                         }
 
                         if ((NF - 9) % 10 == 0) {
@@ -194,19 +199,7 @@ namespace DIMIFiscal {
                         }
 
                         if (arqPDF == "PDFSim") {
-                            NrNF = Browser.FindElement(By.XPath("//*[@id=\"form:j_id160:listaNotas:" + NF + ":j_id179\"]")).GetAttribute("innerText").Replace('/', '-'); ;
-
-                            Browser.FindElement(By.XPath("//*[@id=\"form:j_id160:listaNotas:" + NF + ":j_id179\"]")).Click();
-                            wait.Until(driver => driver.Url.Equals(siteDentroNF));
-                            wait.Until(driver => ((IJavaScriptExecutor)driver).ExecuteScript("return document.readyState").Equals("complete"));
-
-                            string fileName = $"NF_{NrNF}.png";
-                            string fullPath = Path.Combine(getPath(), fileName);
-
-                            Screenshot screenshot = ((ITakesScreenshot)Browser).GetScreenshot();
-                            screenshot.SaveAsFile(fullPath, ScreenshotImageFormat.Png);
-
-                            Browser.Navigate().Back();
+                            baixarPDF(NF);                          
                         }
 
                         if ((NF - 9) % 10 == 0) {
@@ -239,19 +232,7 @@ namespace DIMIFiscal {
                         }
 
                         if (arqPDF == "PDFSim") {
-                            NrNF = Browser.FindElement(By.XPath("//*[@id=\"form:j_id160:listaNotas:" + NF + ":j_id179\"]")).GetAttribute("innerText").Replace('/', '-'); ;
-
-                            Browser.FindElement(By.XPath("//*[@id=\"form:j_id160:listaNotas:" + NF + ":j_id179\"]")).Click();
-                            wait.Until(driver => driver.Url.Equals(siteDentroNF));
-                            wait.Until(driver => ((IJavaScriptExecutor)driver).ExecuteScript("return document.readyState").Equals("complete"));
-
-                            string fileName = $"NF_{NrNF}.png";
-                            string fullPath = Path.Combine(getPath(), fileName);
-
-                            Screenshot screenshot = ((ITakesScreenshot)Browser).GetScreenshot();
-                            screenshot.SaveAsFile(fullPath, ScreenshotImageFormat.Png);
-
-                            Browser.Navigate().Back();
+                            baixarPDF(NF);
                         }
 
                         if ((NF - 9) % 10 == 0) {
@@ -265,7 +246,7 @@ namespace DIMIFiscal {
                     } catch (NoSuchElementException) {
                         break;
                     }
-
+                }
                     if (NF == 0) {
                         MessageBox.Show("Nenhuma Nota Fiscal baixada para a empresa " + this.client.Name);
                     } else if (NF == 1) {
@@ -273,8 +254,6 @@ namespace DIMIFiscal {
                     } else {
                         MessageBox.Show(NF + " NFs baixadas");
                     }
-                }
-
 
             } else {
                 IWebElement errorMessage = Browser.FindElement(By.XPath("//*[@id=\"mensagem\"]/div"));
@@ -282,7 +261,6 @@ namespace DIMIFiscal {
                 Browser.Quit();
                 MessageBox.Show(errorText, "Mensagem de erro do site");
             }
-
             Browser.Quit();
         }
 
