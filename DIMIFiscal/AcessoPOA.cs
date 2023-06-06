@@ -244,16 +244,17 @@ namespace DIMIFiscal {
                         NF++;
 
                     } catch (NoSuchElementException) {
+                        if (NF == 0) {
+                            MessageBox.Show("Nenhuma Nota Fiscal baixada para a empresa " + this.client.Name);
+                        } else if (NF == 1) {
+                            MessageBox.Show(NF + " NF baixada!");
+                        } else {
+                            MessageBox.Show(NF + " NFs baixadas");
+                        }
                         break;
                     }
                 }
-                    if (NF == 0) {
-                        MessageBox.Show("Nenhuma Nota Fiscal baixada para a empresa " + this.client.Name);
-                    } else if (NF == 1) {
-                        MessageBox.Show(NF + " NF baixada!");
-                    } else {
-                        MessageBox.Show(NF + " NFs baixadas");
-                    }
+                    
 
             } else {
                 IWebElement errorMessage = Browser.FindElement(By.XPath("//*[@id=\"mensagem\"]/div"));
